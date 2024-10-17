@@ -14,4 +14,7 @@ app.listen(process.env.port,()=>
 
 
 require("./config/database").connect();
+const router=require("./routes/route");
+app.use("/base",router);
+
 

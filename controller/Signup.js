@@ -30,6 +30,7 @@ exports.signup=async(req,resp)=>
         }
         catch(err)
         {
+            console.log(err.message);
             return resp.status(500).json({
                 success:false,
                 msg:"Error in Hashing Pass"
@@ -40,13 +41,15 @@ exports.signup=async(req,resp)=>
             { name,role,email,pass:hp}
         )
 
-        return resp.status(200).json({
+        return resp.status(201).json({
             success:true,
-            msg:"USER CREATED"
+            msg:"USER CREATED",
+            data:user,
         })
     }
     catch(err)
     {
+        console.log(err);
         resp.status(500).json({
             success:false,
             msg:"INTERNAL SERVER ERROR"
