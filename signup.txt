@@ -1,0 +1,8 @@
+1. input 
+            email,name,pass,role
+
+2. Check if user already Exists
+
+3. HASHING THE PASSWORD- using bcrypt
+
+4. Create  a new user  -> DB Entry
