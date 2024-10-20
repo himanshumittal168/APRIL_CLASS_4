@@ -33,20 +33,18 @@ exports.login=async(req,resp)=>
         if(await  bcrypt.compare(pass,user.pass))
         {
            
-            console.log(process.env.secret);
             // LOGIN
             let payload={
                 email:user.email,
                 id:user._id,
                 role:user.role,
             }
-            console.log(payload);
             let options={
                 httpOnly:true,
                 expires: new Date( Date.now() + 3 * 24 * 60 * 60 * 1000),
             }
             let token=jwt.sign(payload,process.env.secret);
-            resp.cookie("RICHA",token,options).status(200).json({
+            resp.cookie("KIRAN",token,options).status(200).json({
                 success:true,
                 msg:"Login Successfull",
                 token,
