@@ -35,3 +35,27 @@ exports.auth=(req,resp,next)=>
         })
     }
 }
+
+
+exports.isStudent=(req,resp,next)=>
+{
+    try
+    {
+        if(req.user.role==="STUDENT")
+            next();
+        else
+        {
+            resp.status(404).json({
+                success:false,
+                msg:"YOU ARE NOT ALLOWED TO ACCESS THIS PAGE"
+            })
+        }
+    }
+    catch(err)
+    {
+        return resp.status(500).json({
+            success:false,
+            msg:"INTERNAL SERVER ERROR"
+        })
+    }
+}
