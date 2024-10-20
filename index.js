@@ -2,10 +2,11 @@ const express=require('express');
 
 const app=express();
 require('dotenv').config();
+const cookieParser=require("cookie-parser");
 // MIDDLE WARE use  to parse the req body
 app.use(express.json());
 
-
+app.use(cookieParser());
 
 app.listen(process.env.port,()=>
 {

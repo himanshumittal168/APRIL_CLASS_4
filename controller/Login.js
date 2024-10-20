@@ -44,7 +44,7 @@ exports.login=async(req,resp)=>
                 expires: new Date( Date.now() + 3 * 24 * 60 * 60 * 1000),
             }
             let token=jwt.sign(payload,process.env.secret);
-            resp.cookie("KIRAN",token,options).status(200).json({
+            resp.cookie("token",token,options).status(200).json({
                 success:true,
                 msg:"Login Successfull",
                 token,
